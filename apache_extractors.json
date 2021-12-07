@@ -1,20 +1,6 @@
 {
   "extractors": [
     {
-      "title": "Apache Timestamp",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "apache_timestamp",
-      "extractor_config": {
-        "regex_value": "\\[(\\d+\\/\\w+\\/\\d+)\\:(\\d+\\:\\d+:\\d+)\\s"
-      },
-      "condition_type": "none",
-      "condition_value": ""
-    },
-    {
       "title": "Apache Client IP",
       "extractor_type": "split_and_index",
       "converters": [],
@@ -45,7 +31,7 @@
       "condition_value": ""
     },
     {
-      "title": "Apache referrer",
+      "title": "Apache Referrer",
       "extractor_type": "split_and_index",
       "converters": [],
       "order": 0,
@@ -87,7 +73,21 @@
       },
       "condition_type": "none",
       "condition_value": ""
+    },
+    {
+      "title": "Apache Timestamp",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "apache_timestamp",
+      "extractor_config": {
+        "regex_value": "\\[(\\d+\\/\\w+\\/\\d+\\:\\d+\\:\\d+:\\d+ [+-]\\d+)\\]\\s"
+      },
+      "condition_type": "none",
+      "condition_value": ""
     }
   ],
-  "version": "2.4.6"
+  "version": "4.2.2"
 }
