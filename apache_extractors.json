@@ -1,15 +1,15 @@
 {
   "extractors": [
     {
-      "title": "Apache_date",
+      "title": "Apache Timestamp",
       "extractor_type": "regex",
       "converters": [],
       "order": 0,
       "cursor_strategy": "copy",
       "source_field": "message",
-      "target_field": "Apache_date",
+      "target_field": "apache_timestampåå",
       "extractor_config": {
-        "regex_value": "\\[(\\d+\\/\\w+\\/\\d+)"
+        "regex_value": "\\[(\\d+\\/\\w+\\/\\d+)\\:(\\d+\\:\\d+:\\d+)\\s"
       },
       "condition_type": "none",
       "condition_value": ""
@@ -21,7 +21,7 @@
       "order": 0,
       "cursor_strategy": "copy",
       "source_field": "message",
-      "target_field": "Apache_client_IP",
+      "target_field": "apache_client_ip",
       "extractor_config": {
         "index": 1,
         "split_by": " "
@@ -30,27 +30,13 @@
       "condition_value": ""
     },
     {
-      "title": "Apache Time",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "apache_time",
-      "extractor_config": {
-        "regex_value": "\\:(\\d+\\:\\d+:\\d+)\\s"
-      },
-      "condition_type": "none",
-      "condition_value": ""
-    },
-    {
-      "title": "Apache http request",
+      "title": "Apache HTTP request",
       "extractor_type": "split_and_index",
       "converters": [],
       "order": 0,
       "cursor_strategy": "copy",
       "source_field": "message",
-      "target_field": "Apache_http_request",
+      "target_field": "apache_http_request",
       "extractor_config": {
         "index": 2,
         "split_by": "\""
@@ -65,7 +51,7 @@
       "order": 0,
       "cursor_strategy": "copy",
       "source_field": "message",
-      "target_field": "Apache_referrer",
+      "target_field": "apache_referrer",
       "extractor_config": {
         "index": 4,
         "split_by": "\""
@@ -74,13 +60,13 @@
       "condition_value": ""
     },
     {
-      "title": "Apache user agent",
+      "title": "Apache User Agent",
       "extractor_type": "split_and_index",
       "converters": [],
       "order": 0,
       "cursor_strategy": "copy",
       "source_field": "message",
-      "target_field": "Apache_client_UserAgent",
+      "target_field": "apache_user_agent",
       "extractor_config": {
         "index": 6,
         "split_by": "\""
@@ -89,13 +75,13 @@
       "condition_value": ""
     },
     {
-      "title": "Apache http status code",
+      "title": "Apache HTTP Status Code",
       "extractor_type": "regex",
       "converters": [],
       "order": 0,
       "cursor_strategy": "copy",
       "source_field": "message",
-      "target_field": "Apache_http_status",
+      "target_field": "apache_http_status",
       "extractor_config": {
         "regex_value": "\"\\s(\\d+)\\s\\-\\s"
       },
